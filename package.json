@@ -1,0 +1,19 @@
+{
+  "name": "eventobserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "EventObserver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mywifemademejoin/eventObserver.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mywifemademejoin/eventObserver/issues"
+  },
+  "homepage": "https://github.com/mywifemademejoin/eventObserver#readme"
+}

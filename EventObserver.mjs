@@ -149,51 +149,60 @@ class ObserverObject {
 	}
 }
 
-// export default function create(...configs) {
-//    return new EventObserver(...configs
-//       // sanitize: {tags: [], inlineJS: Boolean} // runs html sanitizer to remove specified opts.
-//       // observeTarget: '#cp-menu',
-//       // displayTarget: '#display', // optional if not outputting to another container - maybe use a 'self' option?
-//       // callback: function (e) { console.log(`Loading link: ${e.target.closest('a')}`); }
-//       // eventType: 'click', // optional, default 'click'
-//       // eventHandler: function(){} // replaces prototype default handler on per instance basis
-//       // __defaultEventHandler: function(){}  // replaces prototype defaultEventHandelr for ALL instances
-//    );
-// }
-// {
-//    observeTarget: 'h1',
-//    // displayTarget: 'h2',
-//    callback: function(e){console.log(`you clicked on ${e.target.tagName}`)}
-// },
-// {
-//    observeTarget: 'h1',
-//    // displayTarget: 'h2',
-//    // eventHandler: function(e){console.log(`you clicked on ${e.target.tagName}`)}
-// },
-// [
-//    'observeTarget', 'h1',
-//    // displayTarget: 'h2',
-//    // callback: function(e){console.log(`you clicked on ${e.target.tagName}`)}
-// ],
-// {
-//    observeTarget: 'h1',
-//    eventType: 'dblclick',
-//    eventHandler: function(e){
-//       e.target.style.color = `red`
-//       e.target.style.transform = `translateX(50%)`
-//       e.target.style.transition = `transform 1.5s`
-//    }
-// }
-// );
-// const LinkObserver1 = new EventObserver()
+const configs = [
+	{
+		observeTarget : 'h1',
+		// displayTarget: 'h2',
+		callback      : function(e) {
+			console.log(`you clicked on ${e.target.tagName}`);
+		}
+	},
+	{
+		observeTarget : 'h1'
+		// displayTarget: 'h2',
+		// eventHandler: function(e){console.log(`you clicked on ${e.target.tagName}`)}
+	},
+	[
+		'observeTarget',
+		'h1'
+		// displayTarget: 'h2',
+		// callback: function(e){console.log(`you clicked on ${e.target.tagName}`)}
+	],
+	{
+		observeTarget : 'h1',
+		eventType     : 'dblclick',
+		eventHandler  : function(e) {
+			e.target.style.color = `red`;
+			e.target.style.transform = `translateX(50%)`;
+			e.target.style.transition = `transform 1.5s`;
+		}
+	}
+];
+
+export default function create(...configs) {
+	return new EventObserver(
+		...configs
+		// sanitize: {tags: [], inlineJS: Boolean} // runs html sanitizer to remove specified opts.
+		// observeTarget: '#cp-menu',
+		// displayTarget: '#display', // optional if not outputting to another container - maybe use a 'self' option?
+		// callback: function (e) { console.log(`Loading link: ${e.target.closest('a')}`); }
+		// eventType: 'click', // optional, default 'click'
+		// eventHandler: function(){} // replaces prototype default handler on per instance basis
+		// __defaultEventHandler: function(){}  // replaces prototype defaultEventHandelr for ALL instances
+	);
+}
+const LinkObserver1 = new EventObserver();
 
 //USAGE
-// new EventObserver({
-//    observeTarget: '#cp-menu',
-//    displayTarget: '#display', // required only for default behaviour
-//    __eventHandlerExtention: function(e, data){console.log(this);hello(e, data)} // runs after defaultEvent for all instances
-//    // eventType: 'click', // optional, default 'click'
-//    // callback: function (e) { console.log(`Loading link: ${e.target.closest('a')}`); } // additional code to execute after default behaviour
-//    // eventHandler: function(){} // replaces prototype default handler on per instance basis
-//    // __defaultEventHandler: function(){}  // replaces prototype defaultEventHandelr for ALL instances
-// })
+new EventObserver({
+	observeTarget           : '#cp-menu',
+	displayTarget           : '#display', // required only for default behaviour
+	__eventHandlerExtention : function(e, data) {
+		console.log(this);
+		hello(e, data);
+	} // runs after defaultEvent for all instances
+	// eventType: 'click', // optional, default 'click'
+	// callback: function (e) { console.log(`Loading link: ${e.target.closest('a')}`); } // additional code to execute after default behaviour
+	// eventHandler: function(){} // replaces prototype default handler on per instance basis
+	// __defaultEventHandler: function(){}  // replaces prototype defaultEventHandelr for ALL instances
+});

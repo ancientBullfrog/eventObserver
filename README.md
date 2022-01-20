@@ -11,8 +11,10 @@ Lastly, it has some error checking to make sure everything required is provided,
   
   As mantioned the default behaviour is to watch for clicks on links; other fun things it could do are:
   - tell you when to click on a paragraph, header, button... vital feedback!
-  - watch for a transition to finish and respond with whatever you like ...just like using an eventListener for 'transitionend' would do
+  - watch for a transition to finish and respond with whatever you like ...just like using an eventListener for 'transitionend' would do...
   
   I guess this class allows you to watch the page for various events from one convenient location.
+  
+  The code is structured using two classes: the link observer, multiple instances of observer objects. The observer objects watch various containers for clicks on links and load the data to the location specified.
   
   It has not been thouroughly tested for anything beyond its default behaviour.

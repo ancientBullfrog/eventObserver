@@ -47,7 +47,7 @@ class ObserverObject {
 		if (config.__eventHandlerExtention) this.__proto__.eventHandlerExtention = config.__eventHandlerExtention;
 
 		// add displayTarget if present
-		if (config.displayTarget) this.displayTarget = document.querySelector(config.displayTarget); //required
+		if (config.displayTarget) this.displayTarget = document.querySelector(config.displayTarget);
 
 		// set custom per instance eventHandler function if present, overrides class method
 		if (config.eventHandler) this.defaultEventHandler = config.eventHandler;
